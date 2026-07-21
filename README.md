@@ -1,10 +1,16 @@
 # IMAX Through the Years
 
-**The giant screen, measured** — a data study of every film released in IMAX from 1994 to 2026.
+Since [The Odyssey](https://www.imdb.com/title/tt33764258/) currently came out, I decided to conduct a data study of every film released in IMAX from 1994 to 2026 to determine how has IMAX grown in popularity and how it compares against premium formats. 
 
-This project pairs a **dataset** of 1,406 IMAX films (plus the screens that show them and the money they make) with an interactive **dashboard** that turns that data into a fifteen-section visual essay. It answers a simple question with real numbers instead of marketing: what actually makes an "IMAX film" — and what makes one succeed?
+Despite, IMAX 70 mm projectors not being made for [50 years](https://variety.com/2026/film/news/why-no-more-imax-70mm-screens-the-odyssey-christopher-nolan-1236813019/), the realm of cinematography has changed quite a bit.
 
-The whole thing ships as a **static site** (Next.js → static export, self-hosted Chart.js, works offline) built on top of a **Python scraping/ETL pipeline** that assembles the underlying CSVs.
+This project pairs a **dataset** of 1,406 IMAX films (plus the screens that show them and the money they make) with an interactive **dashboard** that turns that data into a fifteen-section visual essay. This dataset was extracted since its not readily available from different sites.
+
+Currently, I am servinhg this as a  **static site** (Next.js → static export, self-hosted Chart.js, works offline) built on top of a **Python scraping/ETL pipeline** that assembles the underlying CSVs to host on netlify.
+
+You can see the site here:
+
+Dashboard: https://charming-panda-834e2f.netlify.app/
 
 ---
 
@@ -25,7 +31,6 @@ The whole thing ships as a **static site** (Next.js → static export, self-host
 
 The scarcity compounds: the tall 1.43:1 frame is not only rare, it is also physically **2.3× the screen area** of a typical 1.90:1 house. So when a film is shot in true IMAX, most of the audience — especially outside North America — never sees it at full height.
 
-*The SVG above is self-contained and theme-aware (it adapts to light/dark automatically). Keep it next to the README, or move it into an `assets/` folder and update the image path.*
 
 ---
 
@@ -149,11 +154,6 @@ Python scrapers  →  scraper_output/*.csv  →  (compute summaries)  →  publi
 
 Each script is independent and writes to `scraper_output/` (override with the `SCRAPER_OUTDIR` env var).
 
-```bash
-pip install requests httpx beautifulsoup4 selectolax polars tqdm playwright python-dotenv
-playwright install chromium        # only for the Playwright scrapers
-```
-
 - `scrape_wikipedia_imax.py` — builds the master film table from Wikipedia's IMAX release lists.
 - `scrape_imax_location.py` — IMAX venues + format classes from the community `r-imax/imaxguide` project.
 - `scrape_dolby_venues.py` / `scrape_dolby_wiki.py` — Dolby venues (via Dolby's cinema-finder + OpenStreetMap geocoding) and the Dolby film list.
@@ -163,6 +163,11 @@ playwright install chromium        # only for the Playwright scrapers
 - `scrape_grosses_and_shares.py`, `scrape_imax_probe.py`, `scrape_playwright_v2.py` — verified grosses and per-film IMAX share from Box Office Mojo, IMAX press releases, Deadline, and Letterboxd (`_v2` is current; use `--phases` to rerun a single source).
 
 ---
+
+## Things to do
+- [ ] Add forecasting code
+- [ ] Add dataset files
+- [ ] Detail regarding dataset extraction
 
 ## Sources & licensing
 
@@ -177,12 +182,6 @@ Set your own contact info in each scraper's User-Agent before running — SEC, N
 
 ---
 
-## Reading the data honestly
+## License
 
-The dashboard is explicit about its own limits, and so is the data:
-
-- **A blank IMAX share means "not disclosed," never zero.** IMAX only breaks out per-film share for some wide releases.
-- **A TMDB budget of `0` means "unknown," not free.** Budget coverage is thin for older and non-US films.
-- **Grosses are nominal** (not inflation-adjusted) and split only domestic vs international — there is no reliable per-country revenue in these sources.
-- **Several gaps are selection, not causation.** Dual IMAX+Dolby releases and premium-format stacking correlate with big grosses largely because studios reserve them for films already expected to be huge.
-- **The SEC economics patterns need verification.** Run the `--probe` mode and confirm the matches before trusting the full extraction.
+MIT, feel free to play with it!

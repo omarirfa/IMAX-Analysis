@@ -10,7 +10,7 @@ Currently, I am servinhg this as a  **static site** (Next.js → static export, 
 
 You can see the site here:
 
-Dashboard: https://charming-panda-834e2f.netlify.app/
+Dashboard: https://imax-analysis.netlify.app/
 
 ---
 

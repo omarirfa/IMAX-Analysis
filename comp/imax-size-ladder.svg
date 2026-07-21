@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="100%" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" role="img" aria-label="The IMAX size ladder: format frame shapes drawn to scale">
+<style>
+  /* Default = light-readable (dark ink on light). Works even where
+     prefers-color-scheme is not evaluated. Dark mode overrides below. */
+  .ink  { fill: #24292f; }
+  .sub  { fill: #57606a; }
+  .inkw { stroke: #24292f; }
+  .std  { stroke: #57606a; }
+  .amberF { fill: #f39c12; } .amberS { stroke: #f39c12; }
+  .blueF  { fill: #3498db; } .blueS  { stroke: #3498db; }
+  .amberT { fill: #b26a00; }      /* readable amber on white / pale-amber */
+  @media (prefers-color-scheme: dark) {
+    .ink  { fill: #e6edf3; }
+    .sub  { fill: #adbac7; }
+    .inkw { stroke: #8b949e; }
+    .std  { stroke: #8b949e; }
+    .amberF { fill: #ffb733; } .amberS { stroke: #ffb733; }
+    .blueF  { fill: #4aa8ec; } .blueS  { stroke: #4aa8ec; }
+    .amberT { fill: #ffb733; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; }
+    .anim-init { opacity: 1 !important; transform: none !important; }
+  }
+  @keyframes fIn { from { opacity: 0; transform: scale(.90); } to { opacity: 1; transform: scale(1); } }
+  .frame { transform-box: fill-box; transform-origin: center;
+           animation: fIn .7s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes rIn { from { opacity: 0; } to { opacity: 1; } }
+  .row { animation: rIn .6s ease both; }
+</style>
+
+<text x="380" y="26" text-anchor="middle" class="ink" font-size="16" font-weight="600">The IMAX size ladder — frame shapes, drawn to scale</text>
+<text x="380" y="45" text-anchor="middle" class="sub" font-size="12">Held to the same width, IMAX opens the frame taller: you see more picture, not just a bigger image.</text>
+
+<!-- ===== nested frames ===== -->
+<g transform="translate(56,70)">
+  <!-- extra-picture bands (1.43 minus 1.90) -->
+  <rect class="amberF frame anim-init" style="animation-delay:.10s" x="0" y="7.1"    width="300" height="25.9" opacity="0.18"/>
+  <rect class="amberF frame anim-init" style="animation-delay:.10s" x="0" y="191.0"  width="300" height="25.9" opacity="0.18"/>
+  <text x="150" y="24" text-anchor="middle" class="amberT" font-size="10.5" font-style="italic">extra IMAX picture</text>
+  <text x="150" y="209" text-anchor="middle" class="amberT" font-size="10.5" font-style="italic">extra IMAX picture</text>
+
+  <!-- frames (outlines), largest first -->
+  <rect class="amberS frame anim-init" style="animation-delay:.00s" x="0" y="7.1"   width="300" height="209.8" rx="6" fill="none" stroke-width="2.6"/>
+  <rect class="blueS  frame anim-init" style="animation-delay:.14s" x="0" y="33.05" width="300" height="157.9" rx="6" fill="none" stroke-width="2.6"/>
+  <rect class="std    frame anim-init" style="animation-delay:.28s" x="0" y="49.24" width="300" height="125.5" rx="6" fill="none" stroke-width="1.8" stroke-dasharray="5 4"/>
+
+  <!-- inline ratio tags -->
+  <text x="8" y="21"    class="amberT" font-size="11" font-weight="700">1.43:1</text>
+  <text x="8" y="46.5"  class="blueF"  font-size="11" font-weight="600">1.90:1</text>
+  <text x="150" y="167" text-anchor="middle" class="sub" font-size="10.5">2.39:1 standard scope</text>
+
+  <!-- same-width guide -->
+  <line x1="0" y1="234" x2="300" y2="234" class="inkw" stroke-width="1"/>
+  <line x1="0" y1="230" x2="0" y2="238" class="inkw" stroke-width="1"/>
+  <line x1="300" y1="230" x2="300" y2="238" class="inkw" stroke-width="1"/>
+  <text x="150" y="250" text-anchor="middle" class="sub" font-size="10.5">same frame width</text>
+</g>
+
+<!-- ===== legend ===== -->
+<g transform="translate(430,72)">
+  <g class="row anim-init" style="animation-delay:.05s">
+    <rect x="0" y="0" width="18" height="18" rx="4" class="amberF"/>
+    <text x="28" y="9"  class="ink" font-size="13" font-weight="600">IMAX 1.43:1 · 70&#8201;mm / GT Laser</text>
+    <text x="28" y="26" class="sub" font-size="11">The true &#8220;tall&#8221; frame — the most picture.</text>
+    <text x="28" y="41" class="sub" font-size="11">Median &#8776; 447&#8201;m&#178; (~18&#8201;m tall) · only ~17% of venues</text>
+  </g>
+  <g class="row anim-init" style="animation-delay:.18s" transform="translate(0,62)">
+    <rect x="0" y="0" width="18" height="18" rx="4" class="blueF"/>
+    <text x="28" y="9"  class="ink" font-size="13" font-weight="600">IMAX 1.90:1 · Digital</text>
+    <text x="28" y="26" class="sub" font-size="11">The common multiplex IMAX.</text>
+    <text x="28" y="41" class="sub" font-size="11">Median &#8776; 197&#8201;m&#178; (~10&#8201;m tall) · most venues</text>
+  </g>
+  <g class="row anim-init" style="animation-delay:.31s" transform="translate(0,124)">
+    <rect x="0" y="0" width="18" height="18" rx="4" fill="none" class="std" stroke-width="1.6" stroke-dasharray="4 3"/>
+    <text x="28" y="9"  class="ink" font-size="13" font-weight="600">Standard cinema 2.39:1 · scope</text>
+    <text x="28" y="26" class="sub" font-size="11">Ordinary widescreen — the baseline.</text>
+    <text x="28" y="41" class="sub" font-size="11">Wider and shorter than any IMAX frame.</text>
+  </g>
+  <g class="row anim-init" style="animation-delay:.44s" transform="translate(0,186)">
+    <path d="M0 18 A9 9 0 0 1 18 18 Z" class="ink"/>
+    <text x="28" y="9"  class="ink" font-size="13" font-weight="600">IMAX Dome · planetarium</text>
+    <text x="28" y="26" class="sub" font-size="11">A curved dome screen, not a flat frame.</text>
+    <text x="28" y="41" class="sub" font-size="11">Shown as a note — its geometry differs.</text>
+  </g>
+</g>
+</svg>

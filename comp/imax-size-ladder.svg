@@ -8,7 +8,7 @@
   .std  { stroke: #57606a; }
   .amberF { fill: #f39c12; } .amberS { stroke: #f39c12; }
   .blueF  { fill: #3498db; } .blueS  { stroke: #3498db; }
-  .amberT { fill: #b26a00; }      /* readable amber on white / pale-amber */
+  .amberT { fill: #3d2b00; }      /* dark tone: readable on solid amber in light AND dark mode */
   @media (prefers-color-scheme: dark) {
     .ink  { fill: #e6edf3; }
     .sub  { fill: #adbac7; }
@@ -16,7 +16,6 @@
     .std  { stroke: #8b949e; }
     .amberF { fill: #ffb733; } .amberS { stroke: #ffb733; }
     .blueF  { fill: #4aa8ec; } .blueS  { stroke: #4aa8ec; }
-    .amberT { fill: #ffb733; }
   }
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; }
@@ -35,8 +34,8 @@
 <!-- ===== nested frames ===== -->
 <g transform="translate(56,70)">
   <!-- extra-picture bands (1.43 minus 1.90) -->
-  <rect class="amberF frame anim-init" style="animation-delay:.10s" x="0" y="7.1"    width="300" height="25.9" opacity="0.18"/>
-  <rect class="amberF frame anim-init" style="animation-delay:.10s" x="0" y="191.0"  width="300" height="25.9" opacity="0.18"/>
+  <rect class="amberF frame anim-init" style="animation-delay:.10s" x="0" y="7.1"    width="300" height="25.9"/>
+  <rect class="amberF frame anim-init" style="animation-delay:.10s" x="0" y="191.0"  width="300" height="25.9"/>
   <text x="150" y="24" text-anchor="middle" class="amberT" font-size="10.5" font-style="italic">extra IMAX picture</text>
   <text x="150" y="209" text-anchor="middle" class="amberT" font-size="10.5" font-style="italic">extra IMAX picture</text>
 
